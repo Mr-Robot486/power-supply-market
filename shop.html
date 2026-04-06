@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+        <div class="header">
+            <div >
+                <h3>Electronic market ~ Order best of the best electronics at pocket friendly and grow chanches of winning prices.</h3>
+                <p class="lead">Hands-on all kind of electronics you may need.Join many shoppers and start growing your chances of winning unimaginable prices</p>
+            </div>
+
+            <button  id="menu-btn" style="height: 10vh; display: none; background: #2ecc71; color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">
+                ☰ Menu
+            </button>
+        </div>    
+
+
+    <div class="shop-layout">
+    <!--===Side bar=====-->
+        <aside class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li style="cursor: pointer;" onclick="showView('dashboard')">📊 Dashboard</li>
+                <li style="cursor: pointer;" onclick="showView('goods')">🛍 Products</li>
+                <li style="cursor: pointer;" onclick="showView('cart')">🛒 Cart</li>
+                <li style="cursor: pointer;" onclick="showView('orders')">📦 Your Orders</li>
+                <li style="cursor: pointer;" onclick="showView('complete')">✅ Completed Orders</li>
+                <li style="cursor: pointer;" onclick="showView('elec')">⚡Pay Electricity</li>
+            </ul>
+        </aside>
+            
+    <!--====Dashbord====-->
+            <main class="main-content">
+                <section class="view" id="dashboard-view">
+                    <h2>Dashboard</h2>
+                    <div id="user-info" class="card" style="display:flex; align-items:center; gap:20px; padding: 20px;"></div>
+                </section>
+
+        <!--=====the market======-->
+                <section id="goods-view" class="view">
+                    <h2>Available Goods</h2>
+                    <div class="search-container" style=" margin-bottom: 20px 1.5rem;">
+                        <input type="text" id="product-search-input" style="width: 35%;padding: 12px;border: 2px solid #ddd;border-radius: 8px;font-size: 1rem;box-sizing: border-box; border-color: #333;outline: none;" placeholder="Search for goods..." onkeyup="searchProducts()">
+                    </div>
+                    <div id="appear" class="card"></div>
+                </section>
+
+        <!--========Cart========-->
+                <section id="cart-view" class="view">
+                    <h2>Your Cart Items</h2>
+                    <div id="user-cart" class="card"></div>
+                    <p>Total: <strong>Ksh <span id="cart-total">0</span></strong></p>
+                    <button style="cursor: pointer;" class="btn" onclick="completeCart()" >Complete purchase</button>
+                </section>
+
+        <!--====Orders====-->
+                <section id="orders-view" class="view">
+                    <h2>Your Orders</h2>
+                    <div id="user-order" class="card"></div>
+                </section>
+
+        <!--====Complete orders=====-->
+                <section id="complete-view" class="view">
+                    <h2>Complete Orders</h2>
+                    <div id="com-oders" class="card"></div> 
+                </section>
+
+        <!--=====Electric bill payment====-->
+                <section id="elec-view" class="view">
+                    <h2>Pay for your electricity bill with ease</h2>
+                    <div id="user-account" class="card"></div>
+                    <button style="cursor: pointer;" class="btn" type="menu" onclick="openPaymentModal()">Pay now</button>
+                    <p>Already paid? Past your message or code here.</p>
+                    <textarea></textarea>
+                    <div>
+                    <button class="btn" type="submit" style="cursor: pointer;">Connect</button>
+                    </div>
+                </section>
+            </main>
+
+        </div>
+        <!--====Payment Intergration=====-->
+        <div id="payment-modal" >
+            <div class="important">
+            <h3>Choose Payment Method</h3>
+      
+            <button style="cursor: pointer;" class="btn" onclick="payWithMpesa()" >📱 M-Pesa</button>
+            <button style="cursor: pointer;" class="btn" onclick="payWithPaypal()">💳 PayPal</button>
+            <button style="cursor: pointer;" class="btn" onclick="payWithBank()" >🏦 Bank Transfer</button>
+      
+             <button style="cursor: pointer;" class="btn danger" onclick="closePayment()">Cancel</button>
+            </div>
+        </div>
+
+      <script src="shop.js"></script>
+    
+</body>
+</html>
